@@ -1,14 +1,24 @@
+# Choose language and version
 language: node_js
 node_js:
   - "8"
 branches:
   only:
     - master
+
+# Setting Environment variables
 env:
   global:
     - LT_USERNAME=deepakm
     - LT_ACCESS_KEY=gIUJGTZtydrnSbdGro6Hm0yOJDfFBJWGZQ8FdyPA1rv07ZxxQA
+
+# All the step which you want to run in container.
 script:
+  - wget https://s3.amazonaws.com/lambda-tunnel/LT_Linux.zip
+  - sudo apt-get install unzip
+  - unzip LT_Linux.zip
+  - ./LT -user deepakm@lambdatest.com -key gIUJGTZtydrnSbdGro6Hm0yOJDfFBJWGZQ8FdyPA1rv07ZxxQA &
+  - sleep 40
   - git pull origin master
   - npm install
   - node_modules/.bin/nightwatch -e chrome
