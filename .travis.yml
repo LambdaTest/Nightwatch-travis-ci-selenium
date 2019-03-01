@@ -6,7 +6,7 @@ branches:
   only:
     - master
 
-# Setting Environment variables
+# Setup custom environment variables
 env:
   global:
     - LT_USERNAME=deepakm
@@ -14,11 +14,17 @@ env:
 
 # All the step which you want to run in container.
 script:
+  # Fetching latest code from  git
+  - git pull origin master
+  # Downloading tunnel binary
   - wget https://s3.amazonaws.com/lambda-tunnel/LT_Linux.zip
+  # Extracting tunnel binary
   - sudo apt-get install unzip
   - unzip LT_Linux.zip
+  # Executing tunnel binary
   - ./LT -user deepakm@lambdatest.com -key gIUJGTZtydrnSbdGro6Hm0yOJDfFBJWGZQ8FdyPA1rv07ZxxQA &
-  - sleep 40
-  - git pull origin master
+  - sleep 30
+  # Installing dependencies
   - npm install
+  # Running test!
   - node_modules/.bin/nightwatch -e chrome
