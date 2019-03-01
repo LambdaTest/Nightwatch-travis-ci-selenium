@@ -5,19 +5,13 @@ node_js:
 branches:
   only:
     - master
-<<<<<<< HEAD
 
-=======
->>>>>>> 76e0a6f4f4bfd4075d90a2ee2a0a8aeef2d235a7
 # Setting Environment variables
 env:
   global:
     - LT_USERNAME=deepakm
     - LT_ACCESS_KEY=gIUJGTZtydrnSbdGro6Hm0yOJDfFBJWGZQ8FdyPA1rv07ZxxQA
-<<<<<<< HEAD
 
-=======
->>>>>>> 76e0a6f4f4bfd4075d90a2ee2a0a8aeef2d235a7
 # All the step which you want to run in container.
 script:
   - wget https://s3.amazonaws.com/lambda-tunnel/LT_Linux.zip
