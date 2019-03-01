@@ -1,13 +1,16 @@
+# Choose language and version
 language: node_js
 node_js:
   - "8"
 branches:
   only:
     - master
+# Setting Environment variables
 env:
   global:
     - LT_USERNAME=deepakm
     - LT_ACCESS_KEY=gIUJGTZtydrnSbdGro6Hm0yOJDfFBJWGZQ8FdyPA1rv07ZxxQA
+# All the step which you want to run in container.
 script:
   - git pull origin master
   - npm install
