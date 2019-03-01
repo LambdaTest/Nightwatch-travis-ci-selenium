@@ -1,0 +1,13 @@
+language: node_js
+node_js:
+  - "8"
+branches:
+  only:
+    - master
+env:
+  global:
+    - LT_USERNAME=deepakm
+    - LT_ACCESS_KEY=gIUJGTZtydrnSbdGro6Hm0yOJDfFBJWGZQ8FdyPA1rv07ZxxQA
+script:
+  - git pull origin master
+  - node_modules/.bin/nightwatch -e chrome
