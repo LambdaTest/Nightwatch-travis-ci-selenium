@@ -10,4 +10,5 @@ env:
     - LT_ACCESS_KEY=gIUJGTZtydrnSbdGro6Hm0yOJDfFBJWGZQ8FdyPA1rv07ZxxQA
 script:
   - git pull origin master
+  - npm install
   - node_modules/.bin/nightwatch -e chrome
