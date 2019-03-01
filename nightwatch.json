@@ -42,7 +42,7 @@
         "visual":true,
         "video":true,
         "console":true,
-        "network":true,
+        "network":true
       }
     },
 
