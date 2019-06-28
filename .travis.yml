@@ -9,20 +9,20 @@ branches:
 # Setup custom environment variables
 env:
   global:
-    - LT_USERNAME=${LAMBDATEST_USERNAME}
-    - LT_ACCESS_KEY=${LAMBDATEST_ACCESS_KEY}
+    - LT_USERNAME=${LT_USERNAME}
+    - LT_ACCESS_KEY=${LT_ACCESS_KEY}
 
 # All the step which you want to run in container.
 script:
   # Fetching latest code from  git
   - git pull origin master
   # Downloading tunnel binary
-  - wget https://s3.amazonaws.com/lambda-tunnel/LT_Linux.zip
+  - wget http://downloads.lambdatest.com/tunnel/linux/64bit/LT_Linux.zip
   # Extracting tunnel binary
   - sudo apt-get install unzip
   - unzip LT_Linux.zip
   # Executing tunnel binary
-  - ./LT -user ${LAMBDATEST_EMAIL} -key ${LAMBDATEST_KEY} &
+  - ./LT -user ${LT_USERNAME} -key ${LT_ACCESS_KEY} &
   - sleep 30
   # Installing dependencies
   - npm install
